@@ -11,13 +11,16 @@ public class HandBehaviour : MonoBehaviour
     public AnimationCurve increaseCurve;
     public float descreaseSpeed = 1f;
 
+    [Range(0f, 1f)]
+    public float scalePercentage = .3f;
     private Quaternion startRotation;
     private Quaternion targetRotation;
     public AnimationCurve rotationCurve;
-
-
+    
     public bool isDecreasing = true;
 
+    private float maxScale;
+    private float minScale;
     private Animator animator;
 
     private void Awake()
@@ -25,12 +28,20 @@ public class HandBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();    
     }
 
+    private void Start()
+    {
+        maxScale = transform.localScale.x * ( 1 + scalePercentage);
+        minScale = transform.localScale.x / ( 1 + scalePercentage);
+    }
+
     private void Update()
     {
         if(!animator.GetBool("Holding"))
         {
             if (isDecreasing)
+            {
                 animationThreshold -= descreaseSpeed * Time.deltaTime;
+            }
             else
             {
                 animationThreshold += increaseSpeed * Time.deltaTime;
@@ -44,6 +55,8 @@ public class HandBehaviour : MonoBehaviour
             {
                 animator.SetBool("Holding", true);
             }
+
+            transform.localScale = Vector3.Lerp(Vector3.one * minScale, Vector3.one * maxScale, animationThreshold);
         }
         else
         {

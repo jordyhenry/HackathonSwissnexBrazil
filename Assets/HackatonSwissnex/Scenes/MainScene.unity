@@ -390,6 +390,9 @@ MonoBehaviour:
   rigTransform: {fileID: 1768985615}
   handTransform: {fileID: 747671196}
   handLine: {fileID: 0}
+  raycastLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &619896637
 GameObject:
   m_ObjectHideFlags: 0
@@ -5569,7 +5572,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891740809}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6476,7 +6479,7 @@ GameObject:
   - component: {fileID: 1946342705}
   - component: {fileID: 1946342704}
   - component: {fileID: 1946342703}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plane
   m_TagString: ground
   m_Icon: {fileID: 0}
@@ -6696,7 +6699,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085011740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6745,6 +6748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529565226612846273, guid: 105377c778cbcd4439745face4faf27b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7529565226612846301, guid: 105377c778cbcd4439745face4faf27b,
         type: 3}

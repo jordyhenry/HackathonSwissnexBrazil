@@ -14,6 +14,8 @@ public class CameraController : MonoBehaviour
     public Transform handTransform;
     public LineRenderer handLine;
 
+    public LayerMask raycastLayer;
+
     private void Awake()
     {
 
@@ -55,7 +57,7 @@ public class CameraController : MonoBehaviour
 
         Ray ray = new Ray(handTransform.position, handTransform.forward);
         RaycastHit hitInfo = new RaycastHit();
-        if (Physics.Raycast(ray, out hitInfo, rayDistance))
+        if (Physics.Raycast(ray, out hitInfo, rayDistance, raycastLayer))
         {
             if (hitInfo.collider.CompareTag(collisionTag))
             {

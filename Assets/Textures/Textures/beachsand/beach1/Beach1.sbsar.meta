@@ -1,0 +1,69 @@
+fileFormatVersion: 2
+guid: fda8af2948aabb64ea97b3b9a7cc2e50
+ScriptedImporter:
+  fileIDToRecycleName:
+    2100000: Beach1
+    2800000: Beach1 - baseColor
+    2800002: Beach1 - normal
+    2800004: Beach1 - metallic
+    2800006: Beach1 - height
+    11400000: sbsar
+    11400002: graph0
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  version: 17
+  mGraphInstanceData:
+  - graphLabel: Beach1
+    prototypeName: Beach1
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://Beach1\" label=\"\" >\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: baseColor,normal,metallic,height
+    texturePackingList: []
+    textureParameters:
+    - textureName: Beach1 - roughness
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Beach1 - baseColor
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Beach1 - normal
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Beach1 - metallic
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Beach1 - height
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    colorSpaceList:
+    - outputName: baseColor
+      bLinear: 0
+    - outputName: normal
+      bLinear: 1
+    - outputName: roughness
+      bLinear: 1
+    - outputName: metallic
+      bLinear: 1
+    - outputName: height
+      bLinear: 1
+    inputTextureMap: []
+    targetSettingList:
+    - label: 
+      bLockRatio: 1
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      bGenerateOnLoad: 1
+    material: {fileID: 2100000, guid: fda8af2948aabb64ea97b3b9a7cc2e50, type: 3}
+    generatedTextures: []

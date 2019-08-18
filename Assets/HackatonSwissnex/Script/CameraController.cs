@@ -52,33 +52,28 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        handLine.SetPosition(0, handTransform.position);
-        handLine.SetPosition(1, handTransform.forward * rayDistance);
 
-        if (triggerPressed)
+        Ray ray = new Ray(handTransform.position, handTransform.forward);
+        RaycastHit hitInfo = new RaycastHit();
+        if (Physics.Raycast(ray, out hitInfo, rayDistance))
         {
-            Ray ray = new Ray(handTransform.position, handTransform.forward);
-            RaycastHit hitInfo = new RaycastHit();
-            if (Physics.Raycast(ray, out hitInfo, rayDistance))
+            if (hitInfo.collider.CompareTag(collisionTag))
             {
-                if (hitInfo.collider.CompareTag(collisionTag))
-                {
+                handLine.SetPosition(0, handTransform.position);
+                handLine.SetPosition(1, hitInfo.point);
+                if (triggerPressed)
                     CreateHand(hitInfo.point);
-                }
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button9))
-        {
-            Ray ray = new Ray(handTransform.position, handTransform.forward);
-            RaycastHit hitInfo = new RaycastHit();
-            if (Physics.Raycast(ray, out hitInfo, rayDistance))
-            {
-                if (hitInfo.collider.CompareTag(collisionTag))
+                if (Input.GetKeyDown(KeyCode.Joystick1Button9))
                 {
                     rigTransform.position = hitInfo.point;
                 }
             }
+        }
+        else
+        {
+            handLine.SetPosition(0, Vector3.zero);
+            handLine.SetPosition(1, Vector3.zero);
         }
     }
 

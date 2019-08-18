@@ -1,0 +1,79 @@
+fileFormatVersion: 2
+guid: a2e1609376079b4469b548f72f45d426
+ScriptedImporter:
+  fileIDToRecycleName:
+    2100000: rock2
+    2800000: rock2 - baseColor
+    2800002: rock2 - normal
+    2800004: rock2 - metallic
+    2800006: rock2 - height
+    11400000: sbsar
+    11400002: graph0
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  version: 17
+  mGraphInstanceData:
+  - graphLabel: rock2
+    prototypeName: rock2
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://rock2\" label=\"\" >\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: baseColor,normal,metallic,height
+    texturePackingList:
+    - outputName: baseColor
+      alphaSource: baseColor
+    - outputName: normal
+      alphaSource: normal
+    - outputName: roughness
+      alphaSource: roughness
+    - outputName: metallic
+      alphaSource: smoothness
+    - outputName: height
+      alphaSource: height
+    textureParameters:
+    - textureName: rock2 - roughness
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: rock2 - baseColor
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: rock2 - normal
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: rock2 - metallic
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: rock2 - height
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    colorSpaceList:
+    - outputName: baseColor
+      bLinear: 0
+    - outputName: normal
+      bLinear: 1
+    - outputName: roughness
+      bLinear: 1
+    - outputName: metallic
+      bLinear: 1
+    - outputName: height
+      bLinear: 1
+    inputTextureMap: []
+    targetSettingList:
+    - label: 
+      bLockRatio: 1
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      bGenerateOnLoad: 1
+    material: {fileID: 2100000, guid: a2e1609376079b4469b548f72f45d426, type: 3}
+    generatedTextures: []

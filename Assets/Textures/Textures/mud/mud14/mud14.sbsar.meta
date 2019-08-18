@@ -1,0 +1,79 @@
+fileFormatVersion: 2
+guid: 8d400eaa91128ea459385431197a7b62
+ScriptedImporter:
+  fileIDToRecycleName:
+    2100000: mud14
+    2800000: mud14 - baseColor
+    2800002: mud14 - normal
+    2800004: mud14 - metallic
+    2800006: mud14 - height
+    11400000: sbsar
+    11400002: graph0
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  version: 17
+  mGraphInstanceData:
+  - graphLabel: mud14
+    prototypeName: mud14
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://mud14\" label=\"\" >\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: baseColor,normal,metallic,height
+    texturePackingList:
+    - outputName: baseColor
+      alphaSource: baseColor
+    - outputName: normal
+      alphaSource: normal
+    - outputName: roughness
+      alphaSource: roughness
+    - outputName: metallic
+      alphaSource: smoothness
+    - outputName: height
+      alphaSource: height
+    textureParameters:
+    - textureName: mud14 - roughness
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: mud14 - baseColor
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: mud14 - normal
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: mud14 - metallic
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: mud14 - height
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    colorSpaceList:
+    - outputName: baseColor
+      bLinear: 0
+    - outputName: normal
+      bLinear: 1
+    - outputName: roughness
+      bLinear: 1
+    - outputName: metallic
+      bLinear: 1
+    - outputName: height
+      bLinear: 1
+    inputTextureMap: []
+    targetSettingList:
+    - label: 
+      bLockRatio: 1
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      bGenerateOnLoad: 1
+    material: {instanceID: 0}
+    generatedTextures: []

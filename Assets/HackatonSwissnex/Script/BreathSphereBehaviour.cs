@@ -7,36 +7,70 @@ public class BreathSphereBehaviour : MonoBehaviour
     public float growthSpeed = 5f;
     private bool isGrowing = false;
     public List<HandBehaviour> handsInside;
+    public List<HandAudio> handsAudios;
+    public Material mat;
 
     Coroutine closeHandsCoroutine;
+    public ParticleSystem particles;
+
+    [Range(10f,256f)]
+    public int particlesPerEmission = 10;
+    public int maxCounter;
+    private int[] classCounter;
 
     private void Update()
     {
         GrowthSphere();
     }
 
-    void GrowthSphere()
+    public void OnConnectionEvent(bool sucesss)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+
+    }
+
+    public void OnMessageArrived(string msg)
+    {
+        float value = float.Parse(msg);
+
+        if (value >= 5f)
         {
             isGrowing = true;
+            GrowthSphere();
+            particles.Emit(particlesPerEmission);
         }
-
-        if (Input.GetKeyUp(KeyCode.Space))
+        else
         {
+            if (!isGrowing) return;
             isGrowing = false;
-            transform.localScale = Vector3.one;
+            transform.localScale = Vector3.zero;
 
             if (closeHandsCoroutine != null)
                 StopCoroutine(IECloseHands());
-            StartCoroutine(IECloseHands());
-            //make transparent
-        }
 
-        if (Input.GetKey(KeyCode.Space))
+            StartCoroutine(IECloseHands());
+            for (int i = 0; i < handsAudios.Count; i++)
+            {
+                handsAudios[i].Stop();
+            }
+            for (int i = 0; i < classCounter.Length; i++)
+            {
+                classCounter[i] = 0;
+            }
+        }
+    }
+
+    private void Start()
+    {
+        classCounter = new int[4];
+    }
+
+    void GrowthSphere()
+    {
+        if (isGrowing)
         {
-            if (isGrowing)
-                transform.localScale += Vector3.one * growthSpeed * Time.deltaTime;
+            transform.localScale += Vector3.one * growthSpeed * Time.deltaTime;
+            float dist = Mathf.Clamp(growthSpeed, 0f, .07f);
+            mat.SetFloat("_Distortion", dist);
         }
     }
 
@@ -48,6 +82,14 @@ public class BreathSphereBehaviour : MonoBehaviour
             handsInside.Add(hand);
             hand.isDecreasing = false;
             hand.SetRotation(transform.parent.position);
+
+            HandAudio handAd = hand.GetComponent<HandAudio>();
+            if (classCounter[handAd.GetClass()] < maxCounter)
+            {
+                classCounter[handAd.GetClass()]++;
+                handsAudios.Add(handAd);
+                handAd.Play();
+            }
         }
     }
 

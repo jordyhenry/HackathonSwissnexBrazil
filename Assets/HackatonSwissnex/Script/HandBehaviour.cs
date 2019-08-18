@@ -76,6 +76,5 @@ public class HandBehaviour : MonoBehaviour
     {
         animationThreshold = .89f;
         animator.SetBool("Holding", false);
-
     }
 }

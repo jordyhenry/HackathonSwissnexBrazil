@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class BreathSphereBehaviour : MonoBehaviour
 {
@@ -18,14 +19,32 @@ public class BreathSphereBehaviour : MonoBehaviour
     public int maxCounter;
     private int[] classCounter;
 
+    bool triggerPressed = false;
     private void Update()
     {
-        GrowthSphere();
-    }
+        float triggerAxis = Input.GetAxis("RightTriggerAxis");
+        if(!triggerPressed)
+        {
+            if (triggerAxis >= .9)
+                triggerPressed = true;
+        }
+        else
+        {
+            if (triggerAxis <= .1)
+                triggerPressed = false;
+        }
 
+        Debug.Log("Trigger " + triggerPressed);
+        if(Input.GetKeyDown(KeyCode.Joystick1Button9))
+            Debug.Log("Trackpad Down");
+
+        if(Input.GetKeyUp(KeyCode.Joystick1Button9))
+            Debug.Log("Trackpad Up");
+    }
+    
     public void OnConnectionEvent(bool sucesss)
     {
-
+        Debug.Log("Connected : " + sucesss);
     }
 
     public void OnMessageArrived(string msg)
@@ -35,6 +54,7 @@ public class BreathSphereBehaviour : MonoBehaviour
         if (value >= 5f)
         {
             isGrowing = true;
+            particles.transform.position = transform.position;
             GrowthSphere();
             particles.Emit(particlesPerEmission);
         }
